@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Scraper UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; padding: 30px 40px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        label { display: block; margin-top: 20px; font-weight: bold; }
+        textarea, input[type=text] { width: 100%; padding: 10px; margin-top: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { margin-top: 25px; width: 100%; padding: 12px; background: #4CAF50; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:disabled { background: #aaa; }
+        .status { margin-top: 30px; text-align: center; font-size: 18px; color: #333; }
+        .download-link { margin-top: 20px; text-align: center; }
+        .download-link a { color: #0066cc; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LinkedIn Job Scraper</h1>
+        <form method="post" action="/scrape">
+            <label for="roles">Job Roles (comma or newline separated):</label>
+            <textarea id="roles" name="roles" rows="3" required></textarea>
+            <label for="locations">Locations (comma or newline separated):</label>
+            <textarea id="locations" name="locations" rows="3" required></textarea>
+            <button type="submit" id="scrapeBtn">Scrape Jobs</button>
+        </form>
+        <div class="status">Status: <span>🔄 Waiting for job results...</span></div>
+        <div class="download-link"></div>
+    </div>
+    <script>
+    function pollStatus() {
+        fetch('/status')
+            .then(response => response.json())
+            .then(data => {
+                let statusDiv = document.querySelector('.status');
+                let downloadDiv = document.querySelector('.download-link');
+                let scrapeBtn = document.getElementById('scrapeBtn');
+                if (data.running) {
+                    statusDiv.innerHTML = `<span>🔄 ${data.message}</span>`;
+                    if (downloadDiv) downloadDiv.innerHTML = '';
+                    if (scrapeBtn) scrapeBtn.disabled = true;
+                } else if (data.filename) {
+                    statusDiv.innerHTML = `<span>${data.message}</span>`;
+                    if (downloadDiv) {
+                        downloadDiv.innerHTML = `<a href="/download/${data.filename}" target="_blank">View/Download Job Results</a>`;
+                    }
+                    if (scrapeBtn) scrapeBtn.disabled = false;
+                } else if (data.message) {
+                    statusDiv.innerHTML = `<span>${data.message}</span>`;
+                    if (downloadDiv) downloadDiv.innerHTML = '';
+                    if (scrapeBtn) scrapeBtn.disabled = false;
+                }
+            });
+    }
+    setInterval(pollStatus, 2000); // Poll every 2 seconds
+    window.onload = pollStatus;
+    </script>
+</body>
+</html> 

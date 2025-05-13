@@ -1,0 +1,633 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>SDET Job Postings</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f5f5f5;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                background-color: white;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            tr:hover {
+                background-color: #f5f5f5;
+            }
+            a {
+                color: #0066cc;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .checkbox-cell {
+                text-align: center;
+            }
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+            .checked-row {
+                background-color: #e8f5e9;
+            }
+        </style>
+        <script>
+            function toggleRow(row) {
+                const checkbox = row.querySelector('.checkbox');
+                const isChecked = checkbox.checked;
+                row.classList.toggle('checked-row', isChecked);
+                
+                // Save the state to localStorage
+                const jobId = row.getAttribute('data-job-id');
+                localStorage.setItem(jobId, isChecked);
+            }
+
+            // Restore checkbox states when page loads
+            window.onload = function() {
+                const rows = document.querySelectorAll('tr[data-job-id]');
+                rows.forEach(row => {
+                    const jobId = row.getAttribute('data-job-id');
+                    const isChecked = localStorage.getItem(jobId) === 'true';
+                    const checkbox = row.querySelector('.checkbox');
+                    checkbox.checked = isChecked;
+                    if (isChecked) {
+                        row.classList.add('checked-row');
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>SDET Job Postings</h1>
+        <table>
+            <tr>
+                <th>Job Role</th>
+                <th>Location</th>
+                <th>Job Link</th>
+                <th>Checked</th>
+            </tr>
+    
+            <tr data-job-id="job-0">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/bigbasket-senior-software-development-engineer-at-bigbasket-4200298956?position=1&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=a1%2B9qzcNhuGzwzPVdd8LBw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-1">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-test-at-phonepe-4024369024?position=2&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=RNaKwJrVvKi8u4ZSgX5Cmg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-2">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-python-at-mcafee-4217882037?position=3&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=ApR6s0RSQRohxsgkWPSs2g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-3">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-selenium-test-automation-engineer-at-tata-elxsi-4222815805?position=4&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=d9oTV7QLSdK6wZ%2F9ybG7nA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-4">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-test-automation-engineer-at-crypto-com-4152378438?position=5&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=GWgaTaGxM0MbVRi7wpgqsA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-5">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-adobe-4222077416?position=6&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=mMjZQfkJ%2Bh5WEdQVYeS%2BkA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-6">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-sdet-at-sony-india-4160337033?position=7&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=D2aQlz7PBxvdK4TNyqS2IQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-7">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-sdet-at-sony-india-4160333823?position=8&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=cuKqepTeQty7ngIWvWFTFg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-8">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-i-at-zeta-4189972197?position=9&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=D4PFEDerpKjNlVVJ8LiISw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-9">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-wipro-4210714781?position=10&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=YVULaZmBxCUv27w3%2FZTgkg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-10">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-at-jio-4212298606?position=11&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2kq%2BAngUIAn3XNQmeBuDUw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-11">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-1-at-growthschool-4150646426?position=12&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=%2FU4OARSYp6LM5rZ9NKdcvA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-12">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/quality-assurance-automation-engineer-at-infosys-4119208865?position=13&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=bNgwCc1eI47wJJNoPCrqzw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-13">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/junior-sdet-at-tyfone-inc-4211263489?position=14&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=WsOGHDmK%2FzA7aV2irkwGWQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-14">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/jr-software-development-engineer-in-test-sdet-at-bluerock-io-4027905584?position=15&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=wZ8XpbjU21fGH4Mwp8eAsQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-15">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/qa-sdet-associate-software-engineering-at-morgan-stanley-4215593472?position=16&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=0jzyZj4PYaglpnmr4Hs0sA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-16">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/qa-test-automation-engineer-at-persistent-systems-4205911064?position=17&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=FeEa2VVLYNk98YXNIItgqg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-17">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-sdet-at-sony-india-software-centre-4187445561?position=18&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=6p3KUJAbP93G6Z3paVcMFw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-18">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-sdet-at-sony-india-software-centre-4187440976?position=19&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=rXZvjDJxidoU3qsTcumUuw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-19">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-intern-at-pocket-fm-4210298495?position=20&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=ickoMrHo14K9%2BGqdXHVbDw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-20">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-at-jio-4223720339?position=21&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=x%2B4A94HuDwIMhSAIzYOP9g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-21">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-test-contract-at-amazon-4137003525?position=22&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=%2FPWr2MRax17LoiY9EwgIAg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-22">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-test-automation-manual-testing-at-kira-studio-4222408038?position=23&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=6tZ676Gy7f369T0q7i%2BgXA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-23">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/qa-automation-engineer-at-oracle-4205608761?position=24&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=u05khYG5ZGmSfThB9Ph6%2Bw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-24">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-sdet-at-wissen-technology-4210409643?position=25&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=qaNxWdIY8gkuFPjBeo%2FxuA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-25">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-at-kira-studio-4221192457?position=26&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2bW8fvy9hD3RxRfu3J6F2A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-26">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-ii-at-zeta-4180604935?position=27&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=QvhcdoYIde%2BIJQ0eXlINlg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-27">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/associate-test-automation-engineer-at-oracle-4205612578?position=28&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=xwCcCubAZ31ovWKC5CK85A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-28">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-engineer-at-fortanix-4225528685?position=29&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=dV8alkoR2dYskXLXQ%2FIBpg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-29">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/quality-assurance-software-development-engineer-testing-ii-at-pharmeasy-4166276174?position=30&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=6MdJY43w%2FtkFCu9MVdmDWA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-30">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-wipro-4214925610?position=31&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=UzvszOdA4VwdQXY1YwXaqw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-31">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-ii-at-zeta-4004965706?position=32&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=YJZ%2BhC3Yw6FbAbcKlVWOFA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-32">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-junior-qa-engineer-%E2%80%93-1-to-3-years-experience-remote-at-testunity-4156159555?position=33&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=Pg8knWqPEanYBgPEi0O2Jw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-33">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-ii-at-zeta-4179909199?position=34&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=uK6DhrAdEvjirkILNdQddA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-34">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/automation-qa-engineer-software-at-light-wonder-4210693235?position=35&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=cpC6UWqUYH84xKUxnwqY3g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-35">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/qa-engineer-sdet-at-weinvest-digital-wealth-platform-4087292996?position=36&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2Gk9tk%2Bl%2Fr5mzLhXAnEf0g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-36">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-recro-4207980814?position=37&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=0HMR60mF9Td71WkNxpCgeA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-37">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-test-engineer-1-at-illumina-4195334357?position=38&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=YkYnmTDBvx%2Bi6d8X4duHig%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-38">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-blr-at-weekday-ai-yc-w21-4225393449?position=39&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=fbrO1%2B2FNl%2FhaDKAAlQzwQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-39">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-wissen-technology-4218672791?position=40&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=cTQsq5M%2ByoSTX5kl%2BRLiXg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-40">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-i-remote-at-sprinto-4211189582?position=41&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=gdsq5skC2Ah%2Bq740o0Zaxw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-41">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sqa-engineers-at-infosys-4193711276?position=42&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=AqNXM4%2BcJlmrANCW0F3LkA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-42">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/automation-testinng-selenium-appium-api-automation-at-infosys-4203534682?position=43&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=6WS3QUWJMVA%2BRgAB2hzJDg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-43">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-landmark-group-4208100341?position=44&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=mDyNBcjpB9E5oq74ILPueA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-44">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-sdet-at-arivon-technologies-4048232581?position=45&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=P%2BG%2BfrF3kxEz4ymm2QwlcA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-45">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-with-2-3-yoe-in-python-infrastructure-lcm-at-nutanix-4208740308?position=46&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=VZzowvcbB5Cjj5JJqi79ig%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-46">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-at-spanidea-systems-3697413508?position=47&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2fjd42VnHh3L7vmxF2mgkw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-47">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-sdet-at-happyfox-3864221026?position=48&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=ESo3v4vtRUP81Dfb%2BpwAxA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-48">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-ii-at-licious-4222817329?position=49&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=0vzLrW6zRKy37PSdtXJDBA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-49">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-in-test-at-mastek-4208157827?position=50&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=wy%2Fvs1cRuxHRwpiFvQIUYQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-50">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/qa-engineer-at-cg-vak-software-exports-ltd-4087099625?position=51&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=g4%2FwIqVcbPZqgIZWtsjpjA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-51">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-test-engineer-ii-at-media-net-4218714994?position=52&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2%2BYGrJXmo15QYnQGvp0BiA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-52">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/quality-assurance-automation-engineer-at-virtusa-4213147354?position=53&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=Y18UOjsmfFr6tGkpCyhHjg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-53">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-qa-engineer-automation-and-manual-at-juntrax-4166269480?position=54&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=sd%2FEw7gq355sFZc7ZssFjg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-54">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-python-pytest-at-everbridge-4187927950?position=55&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=rfBqX1HtB02DI6sh4%2BICPw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-55">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-ibm-4196533637?position=56&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=YAeMgBSA09j%2Fd0vULkH%2BAg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-56">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/test-automation-engineer-at-arm-4214741641?position=57&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=2MsAqSf4LfBECOiF7t33%2Bw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-57">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-delta-exchange-4225538552?position=58&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=RydT0cqW8WPEqkXlf6H2BQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-58">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sdet-2-at-niyo-solutions-inc-4218135993?position=59&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=GU9S34GCVaIfXdNmgSbxow%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-59">
+                <td>SDET</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-test-engineer-at-gvr-technolabs-private-limited-4198344032?position=60&pageNum=0&refId=6MFjmMZefBY8cOeoJuBoqw%3D%3D&trackingId=Ff1QvlYLRoWWPT3G7TgttA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+        </table>
+    </body>
+    </html>
+    
