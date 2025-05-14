@@ -20,10 +20,10 @@ A Python web application to scrape recent job postings from LinkedIn (and option
 web_scrapper/
 │
 ├── app.py                  # Flask web application (UI and backend)
-├── sdet_job_scraper.py     # Core scraping logic for LinkedIn, Indeed, Glassdoor
+├── job_scraper.py          # Core scraping logic for LinkedIn, Indeed, Glassdoor
 ├── requirements.txt        # All Python dependencies
 ├── result/                 # Folder where all generated HTML job result files are saved
-│    └── sdet_jobs_<timestamp>.html
+│    └── scraped_jobs_<timestamp>.html
 ├── templates/
 │    └── job_scraper.html   # HTML template for the web UI
 └── ... (other files/venv)
@@ -67,14 +67,14 @@ web_scrapper/
 - The status is polled by the frontend every 2 seconds for live updates.
 - When scraping is complete, the results are saved as an HTML file in the `result/` folder, and a download link is shown.
 
-### 3. Scraping Logic (`sdet_job_scraper.py`)
+### 3. Scraping Logic (`job_scraper.py`)
 - **LinkedIn Scraper**: Fetches job postings for each role/location, only including jobs posted within the last week.
 - **Extensible**: Functions for Indeed and Glassdoor are present and can be enabled/extended.
 - **Random User-Agent**: Uses `fake-useragent` to avoid being blocked.
 - **HTML Generation**: Results are formatted into a styled HTML table with checkboxes for tracking jobs.
 
 ### 4. Results (`result/`)
-- Each scrape creates a new HTML file named like `sdet_jobs_<timestamp>.html`.
+- Each scrape creates a new HTML file named like `scraped_jobs_<timestamp>.html`.
 - Files are served for download/viewing via the web UI.
 
 ---
@@ -87,7 +87,7 @@ web_scrapper/
 - Provides a `/status` endpoint for live status polling.
 - Serves result files from the `result/` directory.
 
-### `sdet_job_scraper.py`
+### `job_scraper.py`
 - Contains all scraping functions.
 - `scrape_linkedin_jobs`: Main function for LinkedIn scraping.
 - `save_links_to_file`: Saves results as HTML in the `result/` folder.
@@ -104,9 +104,9 @@ web_scrapper/
 
 ## Customization & Extensibility
 
-- **Add More Job Boards**: Enable or extend the Indeed/Glassdoor functions in `sdet_job_scraper.py`.
+- **Add More Job Boards**: Enable or extend the Indeed/Glassdoor functions in `job_scraper.py`.
 - **Change Output Format**: Edit `save_links_to_file` to customize the HTML.
-- **Change Result Folder**: Update the `result/` path in both `app.py` and `sdet_job_scraper.py`.
+- **Change Result Folder**: Update the `result/` path in both `app.py` and `job_scraper.py`.
 
 ---
 
@@ -145,4 +145,15 @@ A: The status resets automatically when you start a new scrape.
 
 ## License
 
-This project is for educational and personal use. Please respect the terms of service of the job boards you scrape. 
+This project is for educational and personal use. Please respect the terms of service of the job boards you scrape.
+
+## Screenshots
+
+### Home Page
+![Home Page](images/First_UI.png)
+
+### After Entering Role and Location and Clicking "Scrape Jobs"
+![Second UI](images/Second_UI.png) 
+
+### Final Page
+![Results Page](images/FInal_Result_Page.png)
