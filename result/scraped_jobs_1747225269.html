@@ -1,0 +1,1173 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Linkedin Job Postings</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f5f5f5;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                background-color: white;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+            tr:hover {
+                background-color: #f5f5f5;
+            }
+            a {
+                color: #0066cc;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .checkbox-cell {
+                text-align: center;
+            }
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+            .checked-row {
+                background-color: #e8f5e9;
+            }
+        </style>
+        <script>
+            function toggleRow(row) {
+                const checkbox = row.querySelector('.checkbox');
+                const isChecked = checkbox.checked;
+                row.classList.toggle('checked-row', isChecked);
+                
+                // Save the state to localStorage
+                const jobId = row.getAttribute('data-job-id');
+                localStorage.setItem(jobId, isChecked);
+            }
+
+            // Restore checkbox states when page loads
+            window.onload = function() {
+                const rows = document.querySelectorAll('tr[data-job-id]');
+                rows.forEach(row => {
+                    const jobId = row.getAttribute('data-job-id');
+                    const isChecked = localStorage.getItem(jobId) === 'true';
+                    const checkbox = row.querySelector('.checkbox');
+                    checkbox.checked = isChecked;
+                    if (isChecked) {
+                        row.classList.add('checked-row');
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Linkedin Job Postings</h1>
+        <table>
+            <tr>
+                <th>Job Role</th>
+                <th>Location</th>
+                <th>Job Link</th>
+                <th>Checked</th>
+            </tr>
+    
+            <tr data-job-id="job-0">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4224309580?position=1&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Jtk7DLsv7LIMA979IrhdUQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-1">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-5-7-at-phonepe-4152249879?position=2&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=3y9V1DHCdVQT%2BFI74D%2BDoA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-2">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-1-at-oracle-4207069164?position=3&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=7uIpoYmhwQ2rrVEaRd5LGA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-3">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/frontend-developer-at-jio-4207305925?position=4&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=TxUOPIjgQQiRHzXp88rWsw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-4">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/bigbasket-senior-software-development-engineer-at-bigbasket-4200298956?position=5&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=OugHA%2FJsmPrWQDShtWNagg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-5">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-kpmg-india-4221038791?position=6&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=LTAkO8vay8xRQ6PV5SO7eQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-6">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-1-at-oracle-4219528462?position=7&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=QJ1%2F0S3ySDLaQB2JXAixWQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-7">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/icets-q1-26-python-java-springboot-angular-at-infosys-4215590137?position=8&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=XbYpEWCPqWMC4DNphO6bvg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-8">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-1-sde-1-at-publicis-sapient-4096697782?position=9&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=9rivaSQDYRfnF74XHkX1sA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-9">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-5-8yrs-at-phonepe-4144362558?position=10&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=kHzp%2FegGiy2gnZ9lrb2l7g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-10">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214268255?position=11&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=l6pTvIZQeIvwm5fQp6yXSQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-11">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214265490?position=12&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=zjpO6zY2m84t67v61S2Kyw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-12">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-5-8yrs-at-phonepe-4143201595?position=13&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=4qSYJmhr1eXJDIbsq8mYvg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-13">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214264926?position=14&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=YkKAcd32RfLWWNbeL2Qnqg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-14">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/junior-software-engineer-at-ikea-4213182693?position=15&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=YQvMy3Ju8btZSy%2FNE4tiZw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-15">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214268273?position=16&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=ynDB%2FW1598uxvK%2BVbIBwJg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-16">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214266371?position=17&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=PB%2FFlWkUUA7JIGd5sLzYxQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-17">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219905124?position=18&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=P51wyFAJohWPPRgcPvaHNQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-18">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219898908?position=19&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=KFONgvw8LpmUtTlqbJJcHA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-19">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219608106?position=20&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=DyAS74oDnK4CeWipir6%2BDw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-20">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219610014?position=21&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=%2FqqMW7NMP0SLPepdW%2FESHg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-21">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4207063946?position=22&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=HfhYPFR%2F5fomgZzpGjCGcg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-22">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/backend-developer-java-at-hashedin-by-deloitte-4169909998?position=23&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=nD0EZUubchokpQzqkA1L1A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-23">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219899867?position=24&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=FS%2BYehj%2F2xtqpwEBAzFTrA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-24">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4207375636?position=25&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=qJOGnXCqHkUTR5PFY%2B%2BOcg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-25">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-phonepe-4223296482?position=26&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=uUKPAXpd8pL5skP0Td5Irw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-26">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-ii-sde-2-at-flipkart-4210565954?position=27&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=KI6Zwd3gNB680oIcoYCD%2Fg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-27">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4193713080?position=28&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=An4b%2FmkWFLzkPhbbDwChpQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-28">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-7-10-years-at-phonepe-4090625782?position=29&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=vocxrXI5c6%2FZGRr%2BVOl%2BqA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-29">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4215508709?position=30&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=jBoMqJcNt3rX8SzK3E9B8A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-30">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4191557511?position=31&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Y9M2G0SVFtHIx9q31O817g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-31">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/frontend-developer-at-jio-4207310483?position=32&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=POTHeca%2Bb5NNqv76Yj44YA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-32">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4193706864?position=33&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=g6UAj%2FW1rROKdlvkx8ma%2FQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-33">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/junior-full-stack-developer-at-millerknoll-4177436748?position=34&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=JTn6pRDs4jqWwBBLW4v4QA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-34">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4198747911?position=35&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=MRD9cVCUu%2Fvh9TQ8ZatUsQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-35">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-3-frontend-at-oracle-4220345169?position=36&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=1WTnoOyvYMrnVTGcnY7yKA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-36">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4211896086?position=37&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Uty6sdBTQd8iIdT26BX4VQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-37">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-2-at-intuit-4183480410?position=38&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=u6tpgHrFDreZ4QMLg7a%2FHA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-38">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4224597452?position=39&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=SbfjyVZEn8fHNI52XXoEaA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-39">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4191820182?position=40&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Z%2BtRkceHM2XykNjQCS61OA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-40">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4213307287?position=41&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=0TqGekLk3pSkmOji5%2F%2BCBQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-41">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4216805858?position=42&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=qXCHbZp3KR%2BI%2FHwq8PgVZQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-42">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-infosys-4142969315?position=43&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=JuL0l%2BANrtnSG5ZgI9uZ5A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-43">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-cisco-4212683359?position=44&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=qs71UtF1xVduF7B2QHGR3A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-44">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4225142136?position=45&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Io2PIVYPlOo%2FwFtgJHp75w%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-45">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4209903428?position=46&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=pP97MWVSXdkYNnuPW96FCQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-46">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-fullstack-golang-java-1-3-years-at-cisco-4183841211?position=47&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=FIIk%2F3vd2RHbBt2gm%2FOJTg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-47">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4217397513?position=48&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=1Z9Bi40EG6%2BO%2FIvNRDIZFg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-48">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-5-7-years-at-phonepe-4089913621?position=49&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=3vKs%2FmMRjO6bOdHQJ7k5Jw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-49">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4211157130?position=50&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=K4vHh5Em0e0kMk4wilhBBw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-50">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-infosys-4190940178?position=51&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=YRMnNdCC6HGVdH%2BVgrYT5Q%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-51">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4197799096?position=52&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=e2E0v9BDyAK32yZZVQCIpQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-52">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-core-infra-at-stripe-4159349417?position=53&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=LwA1gIILi29%2F3Uhj2DeNDg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-53">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-bangalore-at-terralogic-4185453636?position=54&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=hzOO25Ht8tgBKqDg5nxvGQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-54">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-i-backend-at-zeta-4187192215?position=55&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=Dt8dCJvvZhtDPP4Yy5hjZg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-55">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-7-10-yrs-at-phonepe-3999715693?position=56&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=nKeSjAenKRtG7IAk0OPBbA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-56">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-persistent-systems-4205909192?position=57&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=gg0pTU0VhmwiVRL2de5tHQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-57">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/front-end-developer-at-capco-4216331175?position=58&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=p2hmCdIg4wuPv7EnITyD3Q%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-58">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/se-backend-3-5-yoe-pincode-at-phonepe-4224586771?position=59&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=G8q0POaPmaDI7ahSLWXQ1w%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-59">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4217739958?position=60&pageNum=0&refId=VK1FEugPVc88O8ktuP8R2w%3D%3D&trackingId=UIrOGMbQNxXTB8DcP0fURA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-60">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4224309580?position=1&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=vFlP4pQRIQCPy8aX9cBaKg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-61">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-5-7-at-phonepe-4152249879?position=2&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=pN2wPOpv%2BRlCXWjLqMisEg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-62">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-1-at-oracle-4207069164?position=3&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=B7fbrv0ozHOBWa%2FqyFyLmg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-63">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/frontend-developer-at-jio-4207305925?position=4&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=K1hjKaQ8RRPS5decYsydwg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-64">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/bigbasket-senior-software-development-engineer-at-bigbasket-4200298956?position=5&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=8EsT0AW8U3glzjPq6RM%2BAw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-65">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-kpmg-india-4221038791?position=6&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=8gOJxvQ2rNnl%2F0fLmT6%2FGw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-66">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-1-at-oracle-4219528462?position=7&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=nGFCyNHnd19U7uWkV2RFCA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-67">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/icets-q1-26-python-java-springboot-angular-at-infosys-4215590137?position=8&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=J0kF6nBsbhYA%2FdSij6iiQQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-68">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-1-sde-1-at-publicis-sapient-4096697782?position=9&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=rJ1vIbglBWoz8m5ZIS47XA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-69">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-5-8yrs-at-phonepe-4144362558?position=10&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=bjoXOHBslU2Z1PwHMvkQzA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-70">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214268255?position=11&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=4tYQekcvvONPnz0i7A9Q3A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-71">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214265490?position=12&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=%2BD%2FJyG47f5iwE5B7sA01VA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-72">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-5-8yrs-at-phonepe-4143201595?position=13&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=q9ERBEYPufKgEX3%2F6CHg6Q%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-73">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214264926?position=14&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=qPP5Zcs6KARDlPKl8ITHEw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-74">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/junior-software-engineer-at-ikea-4213182693?position=15&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=mVfdyMhwsvQj2ybEwXpazA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-75">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214268273?position=16&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=tPXg6doLbfAIQSMJ6u5Nng%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-76">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4214266371?position=17&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=gJm9iWwpVvLsLDt3Resnbw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-77">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219905124?position=18&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=M5bwFPH38E5jdw2olXExCw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-78">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219898908?position=19&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=YRQjSg2RTs7Ns9kX6%2Bsh7A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-79">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219608106?position=20&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=j31Bjfra%2FSncsRUkpMRfDA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-80">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219610014?position=21&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=fz7PM%2BjLJRtqjFOJE3WAjQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-81">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4207063946?position=22&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=wmsEq4Hiru8IiOdwqxXjVQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-82">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/backend-developer-java-at-hashedin-by-deloitte-4169909998?position=23&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=b4yCoLmkhEvu3qYHUXOnTw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-83">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4219899867?position=24&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=ecjz2M0l5uzwZcPKhInK8A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-84">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4207375636?position=25&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=7evTx0u6FhzsBU3LuopCMg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-85">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-phonepe-4223296482?position=26&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=4sc5gcLF2AqBCjJa8AhyCw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-86">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-ii-sde-2-at-flipkart-4210565954?position=27&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=crPHODxkO9mrMx%2Bw5z2yOA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-87">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4193713080?position=28&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=G8h2CHjS3zVNT0fEY%2BeaUw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-88">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-7-10-years-at-phonepe-4090625782?position=29&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=cbp9tXurWapzP0v0kJgeOg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-89">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4215508709?position=30&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=Gf5LbyGh%2FJalWV%2BCDt8AjA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-90">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4191557511?position=31&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=BfKzqF%2F2%2FAp8UbEpNpBpew%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-91">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/frontend-developer-at-jio-4207310483?position=32&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=g3bKHzzEQXdrRf2F2kCU2w%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-92">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4193706864?position=33&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=OQqEYI4ro27RxbL7%2FjCI0w%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-93">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/junior-full-stack-developer-at-millerknoll-4177436748?position=34&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=bCMOp5%2BQiJ3l0PDSR69X2A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-94">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4198747911?position=35&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=UlfOQ5352cDaVxKpfdcykQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-95">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-3-frontend-at-oracle-4220345169?position=36&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=0MSNvLoGVlpykMfEr1IrXw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-96">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4211896086?position=37&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=0R6xZwkkE62G8%2FhBnTVJwQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-97">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-2-at-intuit-4183480410?position=38&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=G9YOrnJo1hZMzbp87u3c3g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-98">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/sde-1-at-amazon-4224597452?position=39&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=FOaJ6N%2BjWKLe6l3AXP4FtA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-99">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4191820182?position=40&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=TlaJvqV3d6BLJA1PWQitdg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-100">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4213307287?position=41&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=ArsC7K45DQl2%2FJDKyJJUxw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-101">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4216805858?position=42&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=%2B4aYWykScyqC2cry8DUsKg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-102">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-at-infosys-4142969315?position=43&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=KxKGOag8zVgr1wyOhNDrGg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-103">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-cisco-4212683359?position=44&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=vTT91Kz9DZ6YKluLnug%2FLA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-104">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4225142136?position=45&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=XV2Lbois1y05%2BMNMtuJf3g%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-105">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-developer-at-oracle-4209903428?position=46&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=cVc%2FQSwKK5RoOST2wPuOBQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-106">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-fullstack-golang-java-1-3-years-at-cisco-4183841211?position=47&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=on8giZpKVtPAcEL8Rj4%2Fxg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-107">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-at-infosys-4217397513?position=48&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=ESrf0xsgiHrL0rHZGnM%2BKw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-108">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-5-7-years-at-phonepe-4089913621?position=49&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=DSvL06w91qn5vu9rdc0cpw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-109">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4211157130?position=50&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=157v6wu3Z8FzzM7uCAj8dA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-110">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-infosys-4190940178?position=51&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=JOlcaYPuSC5cTNoYwxwNEA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-111">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4197799096?position=52&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=0JRI%2B7DKLU9BQEMfUNB%2B4A%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-112">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-core-infra-at-stripe-4159349417?position=53&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=bxnF3Uta0gRWCvC6xFWyhw%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-113">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/python-developer-bangalore-at-terralogic-4185453636?position=54&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=nAGg3cMkcG7B%2B6eVuaip7w%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-114">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-development-engineer-i-backend-at-zeta-4187192215?position=55&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=I%2F5aKBBQft0y08AssVVhDA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-115">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/software-engineer-backend-7-10-yrs-at-phonepe-3999715693?position=56&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=6jJ%2FT4h7hQjBB9uxmlNIiA%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-116">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/full-stack-developer-at-persistent-systems-4205909192?position=57&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=94i05KuoAuNXzqi0AGYkCQ%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-117">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/front-end-developer-at-capco-4216331175?position=58&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=mS%2FzJwi8DbITHPhtAqy%2B5Q%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-118">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/se-backend-3-5-yoe-pincode-at-phonepe-4224586771?position=59&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=XThN7AFZE1SEfBgQKxI%2F%2Fg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+            <tr data-job-id="job-119">
+                <td>SDE</td>
+                <td>Bengaluru</td>
+                <td><a href="https://in.linkedin.com/jobs/view/java-developer-at-infosys-4217739958?position=60&pageNum=0&refId=yFfwV%2Bsj9N8U4iKafeJxNw%3D%3D&trackingId=2gHtu%2B%2Bq5SNadciy6L%2Bvyg%3D%3D" target="_blank">View Job</a></td>
+                <td class="checkbox-cell">
+                    <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">
+                </td>
+            </tr>
+        
+        </table>
+    </body>
+    </html>
+    

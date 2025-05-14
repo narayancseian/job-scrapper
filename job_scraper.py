@@ -66,7 +66,7 @@ def scrape_indeed_jobs(keyword, locations, max_pages=3):
 
     return job_links
 
-def scrape_linkedin_jobs(keyword, locations, max_pages=1):
+def scrape_linkedin_jobs(keyword, locations, max_pages=2):
     base_url = "https://www.linkedin.com/jobs/search/"
     job_links = []
     session = create_session()
@@ -146,7 +146,7 @@ def scrape_glassdoor_jobs(keyword, locations, max_pages=2):
 
     return job_links
 
-def save_links_to_file(links, filename="sdet_jobs.html"):
+def save_links_to_file(links, roles=None, locations=None, filename="scraped_jobs.html"):
     # Ensure the html directory exists
     html_dir = "result"
     if not os.path.exists(html_dir):
@@ -156,7 +156,7 @@ def save_links_to_file(links, filename="sdet_jobs.html"):
     <!DOCTYPE html>
     <html>
     <head>
-        <title>SDET Job Postings</title>
+        <title>Linkedin Job Postings</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -232,7 +232,7 @@ def save_links_to_file(links, filename="sdet_jobs.html"):
         </script>
     </head>
     <body>
-        <h1>SDET Job Postings</h1>
+        <h1>Linkedin Job Postings</h1>
         <table>
             <tr>
                 <th>Job Role</th>
@@ -243,19 +243,14 @@ def save_links_to_file(links, filename="sdet_jobs.html"):
     """
 
     for index, (link, location) in enumerate(links):
-        # Extract job role from the URL or use a default
-        job_role = "SDET"  # Default value
-        if "SDET2" in link:
-            job_role = "SDET2"
-        elif "SDET-II" in link:
-            job_role = "SDET-II"
-        elif "Software+Development+Engineer+in+Test" in link:
-            job_role = "Software Development Engineer in Test"
+        # Use the user-provided role and location if available
+        job_role = roles[0] if roles else "SDE"
+        job_location = location if location else (locations[0] if locations else "")
 
         html_content += f"""
             <tr data-job-id="job-{index}">
                 <td>{job_role}</td>
-                <td>{location}</td>
+                <td>{job_location}</td>
                 <td><a href="{link}" target="_blank">View Job</a></td>
                 <td class="checkbox-cell">
                     <input type="checkbox" class="checkbox" onchange="toggleRow(this.parentElement.parentElement)">

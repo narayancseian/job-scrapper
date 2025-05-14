@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_file,
 import threading
 import time
 import os
-from sdet_job_scraper import scrape_linkedin_jobs, save_links_to_file
+from job_scraper import scrape_linkedin_jobs, save_links_to_file
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def background_scrape(roles, locations, filename):
             links = scrape_linkedin_jobs(role, locations)
             all_links.extend(links)
             time.sleep(2)
-        save_links_to_file(all_links, filename)
+        save_links_to_file(all_links, roles, locations, filename)
         SCRAPE_STATUS['message'] = f"Done! Found {len(all_links)} jobs."
         SCRAPE_STATUS['filename'] = filename
     except Exception as e:
@@ -38,7 +38,7 @@ def scrape():
     roles = [r.strip() for r in roles if r.strip()]
     locations = request.form['locations'].replace('\r', '').replace('\n', ',').split(',')
     locations = [l.strip() for l in locations if l.strip()]
-    filename = f"sdet_jobs_{int(time.time())}.html"
+    filename = f"scraped_jobs_{int(time.time())}.html"
     threading.Thread(target=background_scrape, args=(roles, locations, filename)).start()
     SCRAPE_STATUS['message'] = "Started scraping..."
     SCRAPE_STATUS['filename'] = ''
